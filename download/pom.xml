@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+<groupId>id</groupId>
+<artifactId>dl</artifactId>
+<version>1</version>
+
+
+
+  <properties>
+    <!-- Make the build reproducible, see root `pom.xml` -->
+    <!-- This is duplicated here because that is recommended by `artifact:check-buildplan` -->
+    <project.build.outputTimestamp>2023-01-01T00:00:00Z</project.build.outputTimestamp>
+
+    <excludeTestCompilation>**/Java17*</excludeTestCompilation>
+  </properties>
+
+  <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
+        
+        <!--   slf4j  to log4j -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
+            <version>2.23.1</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <!--  log4j impl -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.21.1</version>
+        </dependency>
+
+
+	<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+	<dependency>
+	    <groupId>commons-beanutils</groupId>
+	    <artifactId>commons-beanutils</artifactId>
+	    <version>1.9.4</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+	<dependency>
+	    <groupId>org.mariadb.jdbc</groupId>
+	    <artifactId>mariadb-java-client</artifactId>
+	    <version>3.3.2</version>
+	</dependency>
+
+
+  </dependencies>
+
+  <build>
+    <plugins>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>JDK17</id>
+      <activation>
+        <jdk>[17,)</jdk>
+      </activation>
+      <properties>
+        <maven.compiler.testRelease>17</maven.compiler.testRelease>
+        <excludeTestCompilation />
+      </properties>
+    </profile>
+  </profiles>
+</project>

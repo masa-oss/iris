@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="LispInterpreter" default="help" basedir="..">
+
+  <property name="SRC_DIR"     value="./proj1/src"           />
+  <property name="SRC2_DIR"     value="./proj2/src2"         />
+
+  <property name="DEST_DIR"    value="./classes"   />
+
+  <property name="LIB_DIR"    value="./download/target/dependency"   />
+
+  <property name="build.dir"    value="./dist"   />
+  <property name="main.class"    value="iris.example.cui.Main"   />
+
+
+  <path id='my-classpath'>
+    
+    <pathelement location="${LIB_DIR}/gson-2.10.1.jar"                 />
+
+    <pathelement location="${LIB_DIR}/slf4j-api-2.0.9.jar"             />
+
+    <pathelement location="${LIB_DIR}/log4j-api-2.23.1.jar"            />
+    <pathelement location="${LIB_DIR}/log4j-core-2.21.1.jar"           />
+    <pathelement location="${LIB_DIR}/log4j-slf4j2-impl-2.23.1.jar"    />
+
+    <pathelement location="${LIB_DIR}/commons-beanutils-1.9.4.jar"     />
+
+    <pathelement path="./" />
+  </path>
+
+
+  <target name="prepare">
+    <tstamp />
+    <mkdir dir="${DEST_DIR}" />
+  </target>
+
+  <target name="compile" depends="prepare">
+
+    <echo message="compiling ... src" />
+    <javac srcdir="${SRC_DIR}" destdir="${DEST_DIR}"
+       encoding="UTF-8" debug="on" includeantruntime="false">
+      <classpath refid="my-classpath" />
+      <include name="**/*.java" />
+      
+      <compilerarg value="-Xlint:unchecked" />	
+    </javac>
+
+    <javac srcdir="${SRC2_DIR}" destdir="${DEST_DIR}"
+       encoding="UTF-8" debug="on" includeantruntime="false">
+      <classpath refid="my-classpath" />
+      <include name="**/*.java" />
+      
+      <compilerarg value="-Xlint:unchecked" />	
+    </javac>
+
+<!--
+    <copy  todir="${DEST_DIR}" overwrite="true">
+       <fileset dir="${SRC_DIR}"          includes="**/*.xml" >
+            <exclude name="log4j2.xml" />
+            <exclude name="logback.xml" />
+       </fileset>
+    </copy>
+-->
+
+  </target>
+
+  <target name="jar" depends="compile">
+ <jar jarfile="${build.dir}/iris-0.1.jar" basedir="${DEST_DIR}">
+    <manifest>
+      <attribute name="Main-Class" value="${main.class}"/>
+    </manifest>
+  </jar>
+  </target>
+
+<!--
+
+      <attribute name="Class-Path" value="${runtime.classpath}"/>
+      <attribute name="Implementation-Title"   value="${Name}"/>
+      <attribute name="Implementation-Version" value="${version}"/>
+      <attribute name="Implementation-Vendor"  value="${vendor}"/>
+      <attribute name="Build-Id"
+        value="${ts} (${user.name} [${os.name} ${os.version} ${os.arch}])"/>
+-->
+
+  <target name="javadoc">
+    <javadoc packagenames="iris.*" sourcepath="${SRC_DIR}"
+      destdir="javadoc-dir" encoding="UTF-8" charset="UTF-8" >
+		<link href="https://docs.oracle.com/javase/8/docs/api/"/>
+      		<classpath refid="my-classpath" />
+     </javadoc>
+  </target>
+
+  <target name="clean">
+    <delete dir="${DEST_DIR}" />
+
+  </target>
+
+  <target name="help">
+    <echo message="Usage: " />
+    <echo message=" ant clean    -----  clean class files." />
+    <echo message=" ant  jar   -----  compile " />
+
+  </target>
+</project>
