@@ -11,6 +11,48 @@
 
 ## A mix of Common Lisp and Clojure, small lisp interpreter
 
+Basically, programs are written in the style of Common Lisp.
+
+```
+(defun loop-sum (lst)
+   (let ((sum 0))
+    (dolist (x lst)
+       (setq sum (+ sum x))
+    )
+   sum ))
+
+```
+
+Since this interpreter is made in Java, it uses Clojure's ns macro.
+It's not a Common Lisp package.
+
+```
+(ns starter.test
+   [ :refer-iris ]
+   [ :require  clojure.math  :as m  ]
+)
+
+(defun foo (x y)
+   (m/sin  (+ x y)))
+
+```
+
+You can also use clojure's java call function.
+
+```
+(defconstant *sb* (new StringBuilder "Hello"))
+(.append *sb*  " world")
+(.toString *sb*)
+```
+
+
+
+
+
+
+
+
+
 
 
 
