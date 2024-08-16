@@ -45,6 +45,17 @@ You can also use clojure's java call function.
 (.toString *sb*)
 ```
 
+The reader uses and modifies the Clojure source.
+You can use { } and [ ] just like Clojure .
+
+```
+(defn json-response (str array)     
+    { :name  str , :data : array } )
+
+(json-response "sample" '[ 1 2 3 4 5] )  
+
+```
+
 
 
 
