@@ -9,6 +9,17 @@
 </p>
 
 
+## About
+
+This is an educational interpreter written in Java.
+
+I value things that are easy to understand and change.
+
+The following Japanese e-book is written about this interpreter.
+
+『[LISPインタープリタを作成しよう](http://xxxxxxxxxxxxx)』([Zenn Books](https://zenn.dev/books))
+
+
 ## A mix of Common Lisp and Clojure, small lisp interpreter
 
 Basically, programs are written in the style of Common Lisp.
@@ -57,7 +68,9 @@ You can use { } and [ ] just like Clojure .
 ```
 
 
+## License
 
+Eclipse Public License 1.0
 
 
 
