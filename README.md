@@ -17,7 +17,7 @@ I value things that are easy to understand and change.
 
 The following Japanese e-book is written about this interpreter.
 
-『[LISPインタープリタを作成しよう](http://xxxxxxxxxxxxx)』([Zenn Books](https://zenn.dev/books))
+『[LISPインタープリタを作成しよう](https://zenn.dev/clazz/books/92f00040722df7)』([Zenn Books](https://zenn.dev/books))
 
 
 ## A mix of Common Lisp and Clojure, small lisp interpreter
