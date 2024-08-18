@@ -73,6 +73,9 @@ You can use the GUI to see what is registered in the Namespace.
 
 ## CUI
 CUI is also available.
+
+
+
 <img width="398" alt="image" src="https://github.com/user-attachments/assets/c307d756-a76a-4f91-b3a9-3fcce208ea07">
 
 ## How to build
@@ -81,6 +84,8 @@ Download dependent files.
 ```
 cd download
 chmod +x *.sh
+./downlib.sh
+
 or mvn dependency:copy-dependencies
 ```
 
