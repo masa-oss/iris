@@ -67,6 +67,38 @@ You can use { } and [ ] just like Clojure .
 
 ```
 
+## Simple Swing GUI
+You can use the GUI to see what is registered in the Namespace.
+<img width="903" alt="image" src="https://github.com/user-attachments/assets/ffc9701a-b593-42cc-a8ec-dbc7a6c5136c">
+
+## CUI
+CUI is also available.
+<img width="398" alt="image" src="https://github.com/user-attachments/assets/c307d756-a76a-4f91-b3a9-3fcce208ea07">
+
+## How to build
+
+Download dependent files.
+```
+cd download
+chmod +x *.sh
+or mvn dependency:copy-dependencies
+```
+
+Open the project in NetBeans or build it with ant with the command below .
+
+```
+cd ant.run
+ant jar
+cd ..
+
+Mac:
+chmod +x run.sh
+./run.sh
+
+Windows:
+.¥iris_run.bat
+```
+
 
 ## License
 
